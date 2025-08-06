@@ -1,4 +1,10 @@
+com\soap\api\endpoint\AddEndpoint.class
 com\soap\api\model\AddRequest.class
 com\soap\api\model\package-info.class
+com\soap\api\service\AdditionService.class
+com\soap\api\config\SoapActionInterceptor.class
+org\springframework\context\Bean.class
 com\soap\api\model\AddResponse.class
+com\soap\api\ApiApplication.class
+com\soap\api\config\WebServiceConfig.class
 com\soap\api\model\ObjectFactory.class
