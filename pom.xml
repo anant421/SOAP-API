@@ -2,13 +2,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.5.4</version>
         <relativePath/>
     </parent>
+
     <groupId>com.soap</groupId>
     <artifactId>api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -17,48 +20,56 @@
 
     <properties>
         <java.version>21</java.version>
-        <jakarta.xml.bind-api.version>4.0.0</jakarta.xml.bind-api.version>
-        <jaxb-runtime.version>4.0.5</jaxb-runtime.version>
-        <jakarta.xml.ws-api.version>4.0.2</jakarta.xml.ws-api.version>
-        <wsdl4j.version>1.6.3</wsdl4j.version>
+        <!-- Managing JAXB versions can also rely on Spring Boot - explicit versions optional -->
     </properties>
 
     <dependencies>
-        <!-- Spring Boot Web Services -->
+        <!-- Spring Boot Web Services Starter -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web-services</artifactId>
         </dependency>
-        <!-- Hot reload (optional) -->
+
+        <!-- Spring Boot DevTools (optional for development hot reload) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
-        <!-- Spring Boot Testing -->
+
+        <!-- Testing -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
 
+        <!-- Spring Security if required -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
 
-        <!-- JAXB for Java 21+ -->
+        <!-- Jakarta JAXB API for Java 21+ -->
         <dependency>
             <groupId>jakarta.xml.bind</groupId>
             <artifactId>jakarta.xml.bind-api</artifactId>
         </dependency>
+
+        <!-- JAXB Runtime -->
         <dependency>
             <groupId>org.glassfish.jaxb</groupId>
             <artifactId>jaxb-runtime</artifactId>
         </dependency>
-        <!-- WSDL4J required for Spring Web Services -->
+
+        <!-- WSDL4J for Spring Web Services -->
         <dependency>
             <groupId>wsdl4j</groupId>
             <artifactId>wsdl4j</artifactId>
         </dependency>
-        <!-- Jakarta XML WS API (for JAX-WS style code if needed) -->
+
+        <!-- Jakarta XML WS API (optional if you need JAX-WS support) -->
         <dependency>
             <groupId>jakarta.xml.ws</groupId>
             <artifactId>jakarta.xml.ws-api</artifactId>
@@ -67,16 +78,16 @@
 
     <build>
         <plugins>
-            <!-- Spring Boot Plugin -->
+            <!-- Spring Boot Maven Plugin -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <!-- JAXB2 plugin for generating Java classes from XSD -->
+
+            <!-- JAXB2 Maven Plugin with Jakarta XJC 4.x code generator -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>jaxb2-maven-plugin</artifactId>
-                <version>2.5.0</version>
                 <executions>
                     <execution>
                         <id>xjc</id>
@@ -84,15 +95,18 @@
                             <goal>xjc</goal>
                         </goals>
                         <configuration>
+                            <!-- Adjust the schemaDirectory if your XSD is placed elsewhere -->
                             <schemaDirectory>${project.basedir}/src/main/resources</schemaDirectory>
                             <includes>
                                 <include>add.xsd</include>
                             </includes>
                             <packageName>com.soap.api.model</packageName>
+                            <outputDirectory>${project.build.directory}/generated-sources/jaxb</outputDirectory>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
         </plugins>
     </build>
+
 </project>
