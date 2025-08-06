@@ -1,0 +1,10 @@
+D:\Downloads\api\api\src\main\java\com\soap\api\ApiApplication.java
+D:\Downloads\api\api\src\main\java\com\soap\api\config\SoapActionInterceptor.java
+D:\Downloads\api\api\src\main\java\com\soap\api\config\WebServiceConfig.java
+D:\Downloads\api\api\src\main\java\com\soap\api\endpoint\AddEndpoint.java
+D:\Downloads\api\api\src\main\java\com\soap\api\service\AdditionService.java
+D:\Downloads\api\api\src\main\java\org\springframework\context\Bean.java
+D:\Downloads\api\api\target\generated-sources\jaxb\com\soap\api\model\AddRequest.java
+D:\Downloads\api\api\target\generated-sources\jaxb\com\soap\api\model\AddResponse.java
+D:\Downloads\api\api\target\generated-sources\jaxb\com\soap\api\model\ObjectFactory.java
+D:\Downloads\api\api\target\generated-sources\jaxb\com\soap\api\model\package-info.java

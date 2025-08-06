@@ -1,0 +1,4 @@
+com\soap\api\model\AddRequest.class
+com\soap\api\model\package-info.class
+com\soap\api\model\AddResponse.class
+com\soap\api\model\ObjectFactory.class

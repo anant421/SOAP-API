@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://example.com/soapaddition"
+           targetNamespace="http://example.com/soapaddition"
+           elementFormDefault="qualified">
+
+  <xs:element name="AddRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="number1" type="xs:int"/>
+        <xs:element name="number2" type="xs:int"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="AddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="result" type="xs:int"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
