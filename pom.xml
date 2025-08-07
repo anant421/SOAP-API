@@ -45,12 +45,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Spring Security if required -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
-
         <!-- Jakarta JAXB API for Java 21+ -->
         <dependency>
             <groupId>jakarta.xml.bind</groupId>
